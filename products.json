@@ -1,0 +1,202 @@
+[
+    {
+        "ProductID": "001",
+        "ProductName": "Bottled Water",
+        "Weight": "500ml",
+        "Price": 0.99,
+        "Category": "Beverages",
+        "AvailableStock": 100
+    },
+    {
+        "ProductID": "002",
+        "ProductName": "Coca-Cola",
+        "Weight": "1L",
+        "Price": 1.5,
+        "Category": "Beverages",
+        "AvailableStock": 80
+    },
+    {
+        "ProductID": "003",
+        "ProductName": "Red Bull",
+        "Weight": "250ml",
+        "Price": 2.0,
+        "Category": "Beverages",
+        "AvailableStock": 50
+    },
+    {
+        "ProductID": "004",
+        "ProductName": "Tropicana Orange Juice",
+        "Weight": "1L",
+        "Price": 3.0,
+        "Category": "Beverages",
+        "AvailableStock": 60
+    },
+    {
+        "ProductID": "005",
+        "ProductName": "Iced Coffee Can",
+        "Weight": "350ml",
+        "Price": 2.5,
+        "Category": "Beverages",
+        "AvailableStock": 70
+    },
+    {
+        "ProductID": "006",
+        "ProductName": "Lay's Classic Chips",
+        "Weight": "200g",
+        "Price": 1.99,
+        "Category": "Snacks",
+        "AvailableStock": 90
+    },
+    {
+        "ProductID": "007",
+        "ProductName": "KitKat",
+        "Weight": "42g",
+        "Price": 1.0,
+        "Category": "Snacks",
+        "AvailableStock": 120
+    },
+    {
+        "ProductID": "008",
+        "ProductName": "Clif Protein Bar",
+        "Weight": "68g",
+        "Price": 1.8,
+        "Category": "Snacks",
+        "AvailableStock": 50
+    },
+    {
+        "ProductID": "009",
+        "ProductName": "Oreo Cookies",
+        "Weight": "300g",
+        "Price": 2.5,
+        "Category": "Snacks",
+        "AvailableStock": 75
+    },
+    {
+        "ProductID": "010",
+        "ProductName": "Almonds",
+        "Weight": "250g",
+        "Price": 5.0,
+        "Category": "Snacks",
+        "AvailableStock": 40
+    },
+    {
+        "ProductID": "011",
+        "ProductName": "Almond Milk",
+        "Weight": "1L",
+        "Price": 3.5,
+        "Category": "Grocery Essentials",
+        "AvailableStock": 30
+    },
+    {
+        "ProductID": "012",
+        "ProductName": "Whole Grain Bread",
+        "Weight": "400g",
+        "Price": 2.0,
+        "Category": "Grocery Essentials",
+        "AvailableStock": 40
+    },
+    {
+        "ProductID": "013",
+        "ProductName": "Organic Eggs",
+        "Weight": "12 count",
+        "Price": 4.0,
+        "Category": "Grocery Essentials",
+        "AvailableStock": 50
+    },
+    {
+        "ProductID": "014",
+        "ProductName": "Butter",
+        "Weight": "250g",
+        "Price": 3.2,
+        "Category": "Grocery Essentials",
+        "AvailableStock": 60
+    },
+    {
+        "ProductID": "015",
+        "ProductName": "Spaghetti Pasta",
+        "Weight": "500g",
+        "Price": 1.5,
+        "Category": "Grocery Essentials",
+        "AvailableStock": 70
+    },
+    {
+        "ProductID": "016",
+        "ProductName": "H\u00e4agen-Dazs Ice Cream",
+        "Weight": "500ml",
+        "Price": 5.99,
+        "Category": "Frozen Foods",
+        "AvailableStock": 25
+    },
+    {
+        "ProductID": "017",
+        "ProductName": "Frozen Pizza",
+        "Weight": "400g",
+        "Price": 4.5,
+        "Category": "Frozen Foods",
+        "AvailableStock": 30
+    },
+    {
+        "ProductID": "018",
+        "ProductName": "Frozen Vegetables Mix",
+        "Weight": "1kg",
+        "Price": 3.0,
+        "Category": "Frozen Foods",
+        "AvailableStock": 40
+    },
+    {
+        "ProductID": "019",
+        "ProductName": "Ice Cubes",
+        "Weight": "1kg",
+        "Price": 1.0,
+        "Category": "Frozen Foods",
+        "AvailableStock": 50
+    },
+    {
+        "ProductID": "020",
+        "ProductName": "Bananas",
+        "Weight": "1kg",
+        "Price": 1.2,
+        "Category": "Fresh Produce",
+        "AvailableStock": 100
+    },
+    {
+        "ProductID": "021",
+        "ProductName": "Lettuce",
+        "Weight": "500g",
+        "Price": 1.5,
+        "Category": "Fresh Produce",
+        "AvailableStock": 60
+    },
+    {
+        "ProductID": "022",
+        "ProductName": "Carrots",
+        "Weight": "1kg",
+        "Price": 1.0,
+        "Category": "Fresh Produce",
+        "AvailableStock": 70
+    },
+    {
+        "ProductID": "023",
+        "ProductName": "Paper Towels",
+        "Weight": "2 rolls",
+        "Price": 2.5,
+        "Category": "Household Essentials",
+        "AvailableStock": 40
+    },
+    {
+        "ProductID": "024",
+        "ProductName": "Toilet Paper",
+        "Weight": "6 rolls",
+        "Price": 6.0,
+        "Category": "Household Essentials",
+        "AvailableStock": 30
+    },
+    {
+        "ProductID": "025",
+        "ProductName": "Painkillers",
+        "Weight": "20 tablets",
+        "Price": 5.0,
+        "Category": "Health and Beauty",
+        "AvailableStock": 50
+    }
+]
