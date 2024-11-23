@@ -149,6 +149,70 @@ if product_search_query:
     else:
         st.write("No products found. Please refine your search.")
 
+# Tabs for quick actions
+tabs = st.tabs([
+    "Is anyone available to chat?",
+    "Store Location",
+    "Store Working Hours",
+    "Payment Methods",
+    "Special Offers",
+    "Store Policies",
+    "Membership Plans",
+    "FAQs"
+])
+
+# Add content to each tab dynamically from JSON data
+with tabs[0]:
+    st.write("Yes! Our team is here to assist you. Welcome to Junaid's Convenience Store! How can I help you today?")
+
+with tabs[1]:
+    location = store_info_data["location"]
+    st.write(f"Our store is located at {location['address']}, {location['city']}, {location['state']} - {location['zip_code']}, {location['country']}.")
+    st.write("We look forward to your visit!")
+
+with tabs[2]:
+    hours = store_info_data["working_hours"]
+    st.write("Our working hours are:")
+    for day, time in hours.items():
+        st.write(f"{day.replace('_', ' ').title()}: {time}")
+
+with tabs[3]:
+    payment_methods = store_info_data["payment_methods"]
+    st.write("We accept the following payment methods:")
+    for method in payment_methods:
+        st.write(f"- {method}")
+
+with tabs[4]:
+    special_offers = store_info_data["additional_information"]["special_offers"]
+    st.write("### Special Offers:")
+
+    # Display Winter Offers
+    for offer in special_offers.get("winter_offers", []):
+        st.write(f"- {offer}")
+
+with tabs[5]:
+    policies = store_info_data["store_policies"]
+    st.write("Store Policies:")
+    st.write(f"**Returns & Exchanges**: {policies['returns_exchanges']}")
+    st.write(f"**Refund Policy**: {policies['refund_policy']}")
+    st.write(f"**Privacy Policy**: {policies['privacy_policy']}")
+    st.write(f"**Customer Support**: {policies['customer_support']}")
+
+with tabs[6]:
+    membership_plans = store_info_data["membership_plans"]
+    st.write("Membership Plans:")
+    for plan, details in membership_plans.items():
+        st.write(f"**{plan.replace('_', ' ').title()}** - {details['price']}")
+        st.write("Benefits:")
+        for benefit in details["benefits"]:
+            st.write(f"- {benefit}")
+
+with tabs[7]:
+    faqs = store_info_data["faqs"]
+    st.write("Frequently Asked Questions:")
+    for faq in faqs:
+        st.write(f"**Q: {faq['question']}**")
+        st.write(f"A: {faq['answer']}")
 
 def handle_special_queries(query):
     if "complaint" in query.lower():
