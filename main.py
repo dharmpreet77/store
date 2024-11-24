@@ -165,16 +165,26 @@ tabs = st.tabs([
 with tabs[0]:
     st.write("Yes! Our team is here to assist you. Welcome to Junaid's Convenience Store! How can I help you today?")
 
+# Tab for Store Location
+# Tab for Store Location
 with tabs[1]:
-    location = store_info_data["location"]
-    st.write(f"Our store is located at {location['address']}, {location['city']}, {location['state']} - {location['zip_code']}, {location['country']}.")
-    st.write("We look forward to your visit!")
+    st.write("### Our Branches")
+    for branch in store_info_data["branches"]:
+        st.write(f"**{branch['branch_name']}**")
+        st.write(f"Location: {branch['location']['address']}, {branch['location']['city']}, {branch['location']['state']}, {branch['location']['zip_code']}, {branch['location']['country']}")
+        st.write(f"Phone: {branch['contact']['phone']}")
+        st.write(f"Email: {branch['contact']['email']}")
+        st.write(f"Website: {branch['contact']['website']}")
+        st.write("")  # Add a line break between branches
 
+# Tab for Working Hours
 with tabs[2]:
-    hours = store_info_data["working_hours"]
-    st.write("Our working hours are:")
-    for day, time in hours.items():
-        st.write(f"{day.replace('_', ' ').title()}: {time}")
+    st.write("### Working Hours")
+    for branch in store_info_data["branches"]:
+        st.write(f"**{branch['branch_name']}**")
+        for day, time in branch["working_hours"].items():
+            st.write(f"{day.replace('_', ' ').title()}: {time}")
+        st.write("")
 
 with tabs[3]:
     payment_methods = store_info_data["payment_methods"]
@@ -185,8 +195,6 @@ with tabs[3]:
 with tabs[4]:
     special_offers = store_info_data["additional_information"]["special_offers"]
     st.write("### Special Offers:")
-
-    # Display Winter Offers
     for offer in special_offers.get("winter_offers", []):
         st.write(f"- {offer}")
 
@@ -235,18 +243,18 @@ def handle_special_queries(query):
         return response
     elif "place order" in query.lower() or "order" in query.lower():
         return (
-            "At Junaid Convenience Store, we currently do not have an online ordering system. "
-            "However, you can place a phone order or visit us in-store.\n\n"
-            "**Phone Order Details**:\n"
+             "At Junaid Convenience Store, we currently do not have an online ordering system. "
+            "However, you can place a phone order or visit one of our branches.\n\n"
+            "**Kamloops Branch**:\n"
             "- Call: +1 (236) 338-0491\n"
-            "- Email: info@junaidconveniencestore.com\n"
+            "- Address: 789 Victoria St, Kamloops, BC V2C 2B1\n\n"
+            "**Vancouver Branch**:\n"
+            "- Call: +1 (604) 555-1234\n"
+            "- Address: 1234 Main Street, Vancouver, BC V6B 1A1\n\n"
             "- Website: junaidconveniencestore.com\n\n"
-            "**Store Visit**:\n"
-            "Visit us during our working hours:\n"
-            "- Monday to Friday: 8:00 AM - 10:00 PM\n"
-            "- Saturday: 9:00 AM - 11:00 PM\n"
-            "- Sunday: 10:00 AM - 9:00 PM\n\n"
-            "Our friendly staff will be happy to assist you with your order."
+            "For email inquiries, reach out at info@junaidconveniencestore.com."
+             "Our friendly staff will be happy to assist you with your order."
+
         )
     return None
 
@@ -261,13 +269,21 @@ if user_prompt:
     if special_response:
         assistant_response = special_response
     else:
-        # Dynamically construct context from JSON data
+       # Dynamically construct context from JSON data
+        branches_context = "\n".join(
+        [
+            f"**{branch['branch_name']}**:\n"
+            f"- Address: {branch['location']['address']}, {branch['location']['city']}, {branch['location']['state']}, {branch['location']['zip_code']}, {branch['location']['country']}\n"
+            f"- Phone Number: {branch['contact']['phone']}\n"
+            f"- Website: {branch['contact']['website']}\n"
+            f"- email: {branch['contact']['email']}\n"
+            for branch in store_info_data["branches"]
+        ]
+    )
         store_context = (
+            f"Branches:\n{branches_context}\n\n"
             f"Store Name: {store_info_data['store_name']}\n"
             f"Description: {store_info_data['description']}\n"
-            f"Location: {store_info_data['location']['address']}, {store_info_data['location']['city']}, "
-            f"{store_info_data['location']['state']} - {store_info_data['location']['zip_code']}, {store_info_data['location']['country']}\n"
-            f"Working Hours: {', '.join([f'{day.replace('_', ' ').title()}: {time}' for day, time in store_info_data['working_hours'].items()])}\n"
             f"Payment Methods: {', '.join(store_info_data['payment_methods'])}\n"
             f"Policies: Returns - {store_info_data['store_policies']['returns_exchanges']}, "
             f"Refund - {store_info_data['store_policies']['refund_policy']}, "
@@ -276,7 +292,6 @@ if user_prompt:
             f"Membership Plans: {', '.join([f'{plan.replace('_', ' ').title()} - {details['price']} ({', '.join(details['benefits'])})' for plan, details in store_info_data['membership_plans'].items()])}\n"
             f"FAQs: {', '.join([faq['question'] for faq in store_info_data['faqs']])}\n"
         )
-
         product_context = "Products:\n" + "\n".join(
             [f"{product['ProductName']} - {product['Weight']} - ${product['Price']} (Stock: {product['AvailableStock']})"
              for product in products_data]
